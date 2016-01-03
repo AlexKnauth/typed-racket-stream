@@ -1,6 +1,6 @@
 #lang racket/base
 
-(provide stream-cons/thunk)
+(provide stream-cons/thunk empty-stream)
 
 (require racket/stream)
 

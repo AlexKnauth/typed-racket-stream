@@ -1,6 +1,6 @@
 #lang racket/base
 
-(provide stream-cons stream)
+(provide stream-cons stream empty-stream)
 
 (require racket/function
          syntax/parse/define

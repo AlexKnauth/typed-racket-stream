@@ -15,3 +15,14 @@
 (check-equal? (stream-ref s1212 100) 1)
 (check-equal? (stream-ref s1212 101) 2)
 
+(define p
+  (stream (begin (displayln "evaluating") 5)))
+
+(let ([out (open-output-string)])
+  (check-equal? (get-output-string out) "")
+  (parameterize ([current-output-port out])
+    (stream-first p)
+    (check-equal? (stream-first p) 5)
+    (stream-first p))
+  (check-equal? (get-output-string out) "evaluating\n"))
+
