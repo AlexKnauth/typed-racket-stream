@@ -1,9 +1,7 @@
-#lang s-exp typed-racket/base-env/extra-env-lang
+#lang typed/racket/base
 
-(require racket/stream)
+(provide stream?)
 
-(type-environment
- [stream? (let ([p (-arg-path 0)])
-            (-> Univ -Boolean : (-FS (-filter (-seq Univ) p) -top)))]
- )
-
+(require typed/racket/unsafe)
+(unsafe-require/typed racket/stream
+                      [stream? (-> Any Boolean : #:+ (Sequenceof Any))])
