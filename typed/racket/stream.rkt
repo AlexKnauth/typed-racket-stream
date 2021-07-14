@@ -15,6 +15,7 @@
  [stream-length (All (a) [(Sequenceof a) -> Natural])]
  [stream-ref (All (a) [(Sequenceof a) Natural -> a])]
  [stream-tail (All (a) [(Sequenceof a) Natural -> (Sequenceof a)])]
+ [stream-take (All (a) [(Sequenceof a) Natural -> (Sequenceof a)])]
  [stream-append (All (a) [(Sequenceof a) * -> (Sequenceof a)])]
  )
 
