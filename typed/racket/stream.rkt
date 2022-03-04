@@ -19,3 +19,7 @@
  [stream-append (All (a) [(Sequenceof a) * -> (Sequenceof a)])]
  )
 
+(require/typed/provide
+ racket/base
+ [sequence->stream (All (a) (-> (Sequenceof a) (Sequenceof a)))]
+ )
