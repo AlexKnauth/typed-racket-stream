@@ -17,7 +17,7 @@ jobs:
           variant: ${{ matrix.racket-variant }}
           version: ${{ matrix.racket-version }}
       - name: Installing typed-racket-stream and its dependencies
-        run: raco pkg install --auto --name typed-racket-stream .
+        run: raco pkg install --auto --name typed-racket-stream
       - name: Checking dependencies
         run: raco setup --check-pkg-deps --unused-pkg-deps
       - name: Testing typed-racket-stream
