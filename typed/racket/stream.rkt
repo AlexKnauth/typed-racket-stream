@@ -17,6 +17,7 @@
  [stream-tail (All (a) [(Sequenceof a) Natural -> (Sequenceof a)])]
  [stream-take (All (a) [(Sequenceof a) Natural -> (Sequenceof a)])]
  [stream-append (All (a) [(Sequenceof a) * -> (Sequenceof a)])]
+ [stream-map (All (a b) (-> (-> a b) (Sequenceof a) (Sequenceof b)))]
  )
 
 (require/typed/provide
