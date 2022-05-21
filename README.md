@@ -1,4 +1,4 @@
-typed-racket-stream [![Build Status](https://travis-ci.org/AlexKnauth/typed-racket-stream.png?branch=master)](https://travis-ci.org/AlexKnauth/typed-racket-stream)
+typed-racket-stream
 ===
 A typed wrapper for using streams in typed racket.
 
