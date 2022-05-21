@@ -19,6 +19,6 @@ jobs:
       - name: Installing typed-racket-stream and its dependencies
         run: raco pkg install --auto --name typed-racket-stream
       - name: Checking dependencies
-        run: raco setup --check-pkg-deps --unused-pkg-deps
+        run: raco setup --check-pkg-deps --unused-pkg-deps typed
       - name: Testing typed-racket-stream
         run: raco test -p typed-racket-stream
