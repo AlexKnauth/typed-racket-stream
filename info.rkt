@@ -8,3 +8,4 @@
   '("typed-racket-more" ; for typed/rackunit
     ))
 
+(define license 'MIT)
