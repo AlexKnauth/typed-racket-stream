@@ -11,10 +11,26 @@
  [stream-rest (All (a ...) [(Sequenceof a ... a) -> (Sequenceof a ... a)])]
  ;; stream-cons and stream are reimplemented in typed/racket/stream/stream-cons.rkt
  [in-stream (All (a ...) [(Sequenceof a ... a) -> (Sequenceof a ... a)])]
+ [stream-force (All (a ...) [(Sequenceof a ... a) -> (Sequenceof a ... a)])]
  [stream-ref (All (a ...) [(Sequenceof a ... a) Natural -> (Values a ... a)])]
  [stream-tail (All (a ...) [(Sequenceof a ... a) Natural -> (Sequenceof a ... a)])]
  [stream-take (All (a ...) [(Sequenceof a ... a) Natural -> (Sequenceof a ... a)])]
  [stream-append (All (a ...) [(Sequenceof a ... a) * -> (Sequenceof a ... a)])]
+ [stream-map (All (a b ...)
+                  (case->
+                   (-> (-> b ... b a) (Sequenceof b ... b) (Sequenceof a))
+                   (-> (-> a (values b ... b)) (Sequenceof a) (Sequenceof b ... b))))]
+ [stream-andmap (All (b a ...) (-> (-> a ... a b) (Sequenceof a ... a) (U True b)))]
+ [stream-ormap (All (b a ...) (-> (-> a ... a b) (Sequenceof a ... a) (U False b)))]
+ [stream-for-each (All (a ...) (-> (-> a ... a Any) (Sequenceof a ... a) Void))]
+ [stream-fold (All (b a ...) (-> (-> b a ... a b) b (Sequenceof a ... a) b))]
+ [stream-count (All (a ...)
+                    (-> (-> a ... a Any) (Sequenceof a ... a) Nonnegative-Integer))]
+ [stream-filter (All (a b c ...)
+                     (case->
+                      (-> (-> a Any : #:+ b) (Sequenceof a) (Sequenceof b))
+                      (-> (-> c ... c Any) (Sequenceof c ... c) (Sequenceof c ... c))))]
+ [stream-add-between (All (a) (-> (Sequenceof a) a (Sequenceof a)))]
  )
 
 (require/typed/provide
@@ -23,7 +39,6 @@
  ;; empty-stream is also provided from typed/racket/stream/stream-cons.rkt
  [stream-length [SequenceTop -> Natural]]
  [stream->list (All (a) [(Sequenceof a) -> (Listof a)])]
- [stream-map (All (a b) (-> (-> a b) (Sequenceof a) (Sequenceof b)))]
  )
 
 (unsafe-require/typed/provide
