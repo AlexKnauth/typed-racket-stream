@@ -1,7 +1,7 @@
 #lang typed/racket/base
 
-(require "stream/stream-pred.rkt" "stream/stream-cons.rkt" "stream/stream-cons-thunk.rkt")
-(provide stream? stream-cons stream-cons/thunk stream empty-stream)
+(require "stream/stream-pred.rkt" "stream/stream-cons.rkt")
+(provide stream? stream-cons stream empty-stream)
 
 (require typed/racket/unsafe)
 
