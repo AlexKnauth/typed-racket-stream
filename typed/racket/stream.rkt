@@ -43,5 +43,9 @@
 
 (unsafe-require/typed/provide
  racket/base
- [sequence->stream (All (a ...) [(Sequenceof a ... a) -> (Sequenceof a ... a)])]
+ [sequence->stream
+  (All (a ...)
+       (case->
+        [(All (b ...) (Sequenceof b ... b)) -> (All (b ...) (Sequenceof b ... b))] ; empty-sequence->empty-stream
+        [(Sequenceof a ... a) -> (Sequenceof a ... a)]))]
  )
