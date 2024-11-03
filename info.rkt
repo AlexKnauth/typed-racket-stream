@@ -4,8 +4,6 @@
 
 (define deps '("base" "typed-racket-lib"))
 
-(define build-deps
-  '("typed-racket-more" ; for typed/rackunit
-    ))
+(define build-deps '("rackunit-typed"))
 
 (define license 'MIT)
