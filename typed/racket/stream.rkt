@@ -29,7 +29,7 @@
                      (case->
                       [(-> a Any : #:+ b) (Sequenceof a) -> (Sequenceof b)]
                       [(-> c ... c Any) (Sequenceof c ... c) -> (Sequenceof c ... c)]))]
- [stream-add-between (All (a) [(Sequenceof a) a -> (Sequenceof a)])]                  ; see also stream-add-between
+ [stream-add-between (All (a) [(Sequenceof a) a -> (Sequenceof a)])]                  ; see also sequence-add-between
  )
 
 (require/typed/provide
