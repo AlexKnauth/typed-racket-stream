@@ -2,12 +2,11 @@
 
 (provide stream-cons stream empty-stream)
 
-(require racket/function
+(require (for-syntax racket/base
+                     syntax/parse)
+         racket/function
          syntax/parse/define
-         "stream-cons-thunk.rkt"
-         (for-syntax racket/base
-                     syntax/parse
-                     ))
+         "stream-cons-thunk.rkt")
 
 (define-simple-macro (stream-cons a:expr b:expr)
   (stream-cons/thunk (thunk a) (thunk b)))
