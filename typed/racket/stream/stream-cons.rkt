@@ -8,7 +8,7 @@
          syntax/parse/define
          "stream-cons-thunk.rkt")
 
-(define-simple-macro (stream-cons a:expr b:expr)
+(define-syntax-parse-rule (stream-cons a:expr b:expr)
   (stream-cons/thunk (thunk a) (thunk b)))
 
 (define-syntax stream
