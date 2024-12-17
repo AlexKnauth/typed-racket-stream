@@ -6,4 +6,3 @@
 
 (define (stream-cons/thunk a b)
   (stream-cons (a) (b)))
-
