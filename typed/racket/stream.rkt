@@ -7,6 +7,11 @@
 
 (unsafe-require/typed/provide
  racket/stream
+ ;; stream-cons and stream are reimplemented in typed/racket/stream/stream-cons.rkt
+ ;; empty-stream is also provided from typed/racket/stream/stream-cons.rkt
+ [stream-empty? [SequenceTop -> Boolean]]
+ [stream-length [SequenceTop -> Natural]] ; see also sequence-length
+ [stream->list (All (a) [(Sequenceof a) -> (Listof a)])]
  [stream-first  (All (a ...) [(Sequenceof a ... a) -> (Values     a ... a)])]
  [stream-rest   (All (a ...) [(Sequenceof a ... a) -> (Sequenceof a ... a)])]
  [in-stream     (All (a ...) [(Sequenceof a ... a) -> (Sequenceof a ... a)])]
@@ -30,15 +35,6 @@
                       [(-> a Any : #:+ b) (Sequenceof a) -> (Sequenceof b)]
                       [(-> c ... c Any) (Sequenceof c ... c) -> (Sequenceof c ... c)]))]
  [stream-add-between (All (a) [(Sequenceof a) a -> (Sequenceof a)])]                  ; see also sequence-add-between
- )
-
-(require/typed/provide
- racket/stream
- ;; stream-cons and stream are reimplemented in typed/racket/stream/stream-cons.rkt
- ;; empty-stream is also provided from typed/racket/stream/stream-cons.rkt
- [stream-empty? [SequenceTop -> Boolean]]
- [stream-length [SequenceTop -> Natural]] ; see also sequence-length
- [stream->list (All (a) [(Sequenceof a) -> (Listof a)])]
  )
 
 (unsafe-require/typed/provide

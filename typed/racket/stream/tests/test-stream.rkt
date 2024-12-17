@@ -52,3 +52,8 @@
 (check-true  (stream? s0))
 (check-true  (stream? s1))
 (check-true  (stream? s2))
+
+;; opaque struct foo
+(struct foo ())
+
+(check-false (stream-empty? (stream (foo))))
